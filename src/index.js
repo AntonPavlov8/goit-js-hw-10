@@ -26,7 +26,7 @@ userInput.addEventListener(
             Notiflix.Notify.info(
               'Too many matches found. Please enter a more specific name.'
             );
-          } else if (x > 2 && x < 10) {
+          } else if (x > 1 && x < 11) {
             const fragment = document.createDocumentFragment();
             data.forEach(country => {
               const li = document.createElement('li');
@@ -39,7 +39,7 @@ userInput.addEventListener(
             countryInfo.innerHTML = '';
             countryList.innerHTML = '';
             countryList.append(fragment);
-          } else if (x == 1) {
+          } else if (x === 1) {
             countryList.innerHTML = '';
             countryInfo.innerHTML = '';
             const country = data[0];
