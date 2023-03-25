@@ -21,17 +21,14 @@ userInput.addEventListener(
     if (input) {
       fetchCountries(input)
         .then(data => {
-          console.log('data = ', data);
           const x = data.length;
           if (x > 10) {
-            console.log('10+');
             countryList.innerHTML = '';
             countryInfo.innerHTML = '';
             Notiflix.Notify.info(
               'Too many matches found. Please enter a more specific name.'
             );
           } else if (x > 1 && x < 11) {
-            console.log('1-10');
             const fragment = document.createDocumentFragment();
             data.forEach(country => {
               const li = document.createElement('li');
@@ -45,13 +42,10 @@ userInput.addEventListener(
             countryList.innerHTML = '';
             countryList.append(fragment);
           } else if (x === 1) {
-            console.log('1');
             countryList.innerHTML = '';
             countryInfo.innerHTML = '';
             const country = data[0];
             let languages = '';
-
-            console.log('country.languages = ', country.languages);
 
             for (const key in country.languages) {
               languages = languages + country.languages[key] + ', ';
@@ -68,7 +62,6 @@ userInput.addEventListener(
           }
         })
         .catch(er => {
-          console.log('err');
           countryList.innerHTML = '';
           countryInfo.innerHTML = '';
           Notiflix.Notify.failure('Oops, there is no country with that name');
