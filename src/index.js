@@ -49,7 +49,10 @@ userInput.addEventListener(
           countryInfo.innerHTML = '';
           const country = data[0];
           let languages = '';
-          for (key in country.languages) {
+
+          console.log('country.languages = ', country.languages);
+
+          for (const key in country.languages) {
             languages = languages + country.languages[key] + ', ';
           }
           languages = languages.slice(0, languages.length - 2);
